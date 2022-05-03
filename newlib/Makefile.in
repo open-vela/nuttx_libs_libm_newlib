@@ -816,7 +816,7 @@ check_PROGRAMS =
 @HAVE_LIBC_MACHINE_SPU_TRUE@	libc/machine/spu/ferror.c libc/machine/spu/fflush.c libc/machine/spu/fgetc.c libc/machine/spu/fgetpos.c libc/machine/spu/fgets.c libc/machine/spu/fileno.c libc/machine/spu/fiprintf.S \
 @HAVE_LIBC_MACHINE_SPU_TRUE@	libc/machine/spu/fiscanf.S libc/machine/spu/fopen.c libc/machine/spu/fprintf.S libc/machine/spu/fputc.c libc/machine/spu/fputs.c libc/machine/spu/fread.c libc/machine/spu/freopen.c \
 @HAVE_LIBC_MACHINE_SPU_TRUE@	libc/machine/spu/fscanf.S libc/machine/spu/fseek.c libc/machine/spu/fsetpos.c libc/machine/spu/ftell.c libc/machine/spu/fwrite.c libc/machine/spu/getc.c libc/machine/spu/getchar.c \
-@HAVE_LIBC_MACHINE_SPU_TRUE@	libc/machine/spu/gets.c libc/machine/spu/impure.c libc/machine/spu/iprintf.S libc/machine/spu/iscanf.S libc/machine/spu/memcmp.c libc/machine/spu/memcpy.c libc/machine/spu/memmove.c \
+@HAVE_LIBC_MACHINE_SPU_TRUE@	libc/machine/spu/gets.c libc/machine/spu/iprintf.S libc/machine/spu/iscanf.S libc/machine/spu/memcmp.c libc/machine/spu/memcpy.c libc/machine/spu/memmove.c \
 @HAVE_LIBC_MACHINE_SPU_TRUE@	libc/machine/spu/memset.c libc/machine/spu/perror.c libc/machine/spu/printf.S libc/machine/spu/putc.c libc/machine/spu/putchar.c libc/machine/spu/puts.c libc/machine/spu/remove.c \
 @HAVE_LIBC_MACHINE_SPU_TRUE@	libc/machine/spu/rename.c libc/machine/spu/rewind.c libc/machine/spu/scanf.S libc/machine/spu/setbuf.c libc/machine/spu/setvbuf.c libc/machine/spu/siprintf.S libc/machine/spu/siscanf.S \
 @HAVE_LIBC_MACHINE_SPU_TRUE@	libc/machine/spu/sleep.c libc/machine/spu/sniprintf.S libc/machine/spu/snprintf.S libc/machine/spu/sprintf.S libc/machine/spu/sscanf.S libc/machine/spu/stdio.c libc/machine/spu/strcat.c \
@@ -2131,7 +2131,6 @@ am__objects_51 = libc/ssp/libc_a-chk_fail.$(OBJEXT) \
 @HAVE_LIBC_MACHINE_SPU_TRUE@	libc/machine/spu/libc_a-getc.$(OBJEXT) \
 @HAVE_LIBC_MACHINE_SPU_TRUE@	libc/machine/spu/libc_a-getchar.$(OBJEXT) \
 @HAVE_LIBC_MACHINE_SPU_TRUE@	libc/machine/spu/libc_a-gets.$(OBJEXT) \
-@HAVE_LIBC_MACHINE_SPU_TRUE@	libc/machine/spu/libc_a-impure.$(OBJEXT) \
 @HAVE_LIBC_MACHINE_SPU_TRUE@	libc/machine/spu/libc_a-iprintf.$(OBJEXT) \
 @HAVE_LIBC_MACHINE_SPU_TRUE@	libc/machine/spu/libc_a-iscanf.$(OBJEXT) \
 @HAVE_LIBC_MACHINE_SPU_TRUE@	libc/machine/spu/libc_a-memcmp.$(OBJEXT) \
@@ -8812,9 +8811,6 @@ libc/machine/spu/libc_a-getchar.$(OBJEXT):  \
 libc/machine/spu/libc_a-gets.$(OBJEXT):  \
 	libc/machine/spu/$(am__dirstamp) \
 	libc/machine/spu/$(DEPDIR)/$(am__dirstamp)
-libc/machine/spu/libc_a-impure.$(OBJEXT):  \
-	libc/machine/spu/$(am__dirstamp) \
-	libc/machine/spu/$(DEPDIR)/$(am__dirstamp)
 libc/machine/spu/libc_a-iprintf.$(OBJEXT):  \
 	libc/machine/spu/$(am__dirstamp) \
 	libc/machine/spu/$(DEPDIR)/$(am__dirstamp)
@@ -12121,7 +12117,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@libc/machine/spu/$(DEPDIR)/libc_a-getc.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/machine/spu/$(DEPDIR)/libc_a-getchar.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/machine/spu/$(DEPDIR)/libc_a-gets.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@libc/machine/spu/$(DEPDIR)/libc_a-impure.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/machine/spu/$(DEPDIR)/libc_a-iprintf.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/machine/spu/$(DEPDIR)/libc_a-iscanf.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/machine/spu/$(DEPDIR)/libc_a-malloc_ea.Po@am__quote@
@@ -33450,20 +33445,6 @@ libc/machine/spu/libc_a-gets.obj: libc/machine/spu/gets.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/machine/spu/gets.c' object='libc/machine/spu/libc_a-gets.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/machine/spu/libc_a-gets.obj `if test -f 'libc/machine/spu/gets.c'; then $(CYGPATH_W) 'libc/machine/spu/gets.c'; else $(CYGPATH_W) '$(srcdir)/libc/machine/spu/gets.c'; fi`
-
-libc/machine/spu/libc_a-impure.o: libc/machine/spu/impure.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/machine/spu/libc_a-impure.o -MD -MP -MF libc/machine/spu/$(DEPDIR)/libc_a-impure.Tpo -c -o libc/machine/spu/libc_a-impure.o `test -f 'libc/machine/spu/impure.c' || echo '$(srcdir)/'`libc/machine/spu/impure.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/machine/spu/$(DEPDIR)/libc_a-impure.Tpo libc/machine/spu/$(DEPDIR)/libc_a-impure.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/machine/spu/impure.c' object='libc/machine/spu/libc_a-impure.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/machine/spu/libc_a-impure.o `test -f 'libc/machine/spu/impure.c' || echo '$(srcdir)/'`libc/machine/spu/impure.c
-
-libc/machine/spu/libc_a-impure.obj: libc/machine/spu/impure.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/machine/spu/libc_a-impure.obj -MD -MP -MF libc/machine/spu/$(DEPDIR)/libc_a-impure.Tpo -c -o libc/machine/spu/libc_a-impure.obj `if test -f 'libc/machine/spu/impure.c'; then $(CYGPATH_W) 'libc/machine/spu/impure.c'; else $(CYGPATH_W) '$(srcdir)/libc/machine/spu/impure.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/machine/spu/$(DEPDIR)/libc_a-impure.Tpo libc/machine/spu/$(DEPDIR)/libc_a-impure.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/machine/spu/impure.c' object='libc/machine/spu/libc_a-impure.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/machine/spu/libc_a-impure.obj `if test -f 'libc/machine/spu/impure.c'; then $(CYGPATH_W) 'libc/machine/spu/impure.c'; else $(CYGPATH_W) '$(srcdir)/libc/machine/spu/impure.c'; fi`
 
 libc/machine/spu/libc_a-memcmp.o: libc/machine/spu/memcmp.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/machine/spu/libc_a-memcmp.o -MD -MP -MF libc/machine/spu/$(DEPDIR)/libc_a-memcmp.Tpo -c -o libc/machine/spu/libc_a-memcmp.o `test -f 'libc/machine/spu/memcmp.c' || echo '$(srcdir)/'`libc/machine/spu/memcmp.c
