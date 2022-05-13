@@ -3693,9 +3693,9 @@ ACLOCAL_AMFLAGS = -I . -I .. -I ../config
 CLEANFILES = libg.a $(MATHOBJS_IN_LIBC) stmp-targ-include \
 	libc/targetdep.tex libc/targetdep.tex.stamp \
 	$(LIBC_CHEWOUT_FILES) $(LIBC_DOCBOOK_OUT_FILES) libc/*.xml \
-	libc/*.xml.stamp libc/*.3 libm/targetdep.tex \
+	libc_man.stamp libc/*.3 libm/targetdep.tex \
 	libm/targetdep.tex.stamp $(LIBM_CHEWOUT_FILES) \
-	$(LIBM_DOCBOOK_OUT_FILES) libm/*.xml libm/*.xml.stamp libm/*.3
+	$(LIBM_DOCBOOK_OUT_FILES) libm/*.xml libm_man.stamp libm/*.3
 EXTRA_DIST = $(am__append_40)
 PHONY = $(am__append_4)
 SUFFIXES = $(am__append_5)
@@ -3982,6 +3982,8 @@ RUNTESTFLAGS =
 # https://bugs.gnu.org/23599
 TEXI2DVI = texi2dvi -E
 TEXINFO_TEX = ../texinfo/texinfo.tex
+XMLTO_MAN_QUIET_ = --stringparam man.output.quietly=1
+XMLTO_MAN_QUIET = $(XMLTO_MAN_QUIET_$(V))
 @HAVE_DOC_TRUE@MKDOC = doc/makedoc$(EXEEXT_FOR_BUILD)
 @HAVE_DOC_TRUE@CHEW = $(MKDOC) -f $(srcdir)/doc/doc.str
 @HAVE_DOC_TRUE@DOCBOOK_CHEW = ${top_srcdir}/doc/makedocbook.py
@@ -47049,21 +47051,20 @@ libc/targetdep.tex.stamp: $(LIBC_CHAPTERS)
 	$(AM_V_at)touch $@
 libc/targetdep.tex: libc/targetdep.tex.stamp; @true
 
-libc/libc.xml.stamp: libc/libc.in.xml $(LIBC_CHAPTERS) $(LIBC_DOCBOOK_OUT_FILES)
+libc/libc.xml: libc/libc.in.xml $(LIBC_CHAPTERS) $(LIBC_DOCBOOK_OUT_FILES)
 	$(AM_V_at)\
 	for chapter in $(LIBC_CHAPTERS); do \
 	  $(TEXI2DOCBOOK) < $(srcdir)/$$chapter > libc/`basename $${chapter%.tex}`.xml || exit 1; \
 	done
 	$(AM_V_GEN)xsltproc --xinclude --path $(builddir)/libc --nonet $(srcdir)/refcontainers.xslt $< > $@.tmp
-	$(AM_V_at)$(SHELL) $(newlib_basedir)/../move-if-change $@.tmp $(@:.stamp=)
+	$(AM_V_at)$(SHELL) $(newlib_basedir)/../move-if-change $@.tmp $@
+
+libc_man.stamp: libc/libc.xml
+	$(AM_V_GEN)xmlto --skip-validation -o libc --searchpath $(builddir)/libc man -m $(srcdir)/man.xsl $(XMLTO_MAN_QUIET) libc/libc.xml
 	$(AM_V_at)touch $@
-libc/libc.xml: libc/libc.xml.stamp; @true
+man: libc_man.stamp
 
-libc_man: libc/libc.xml
-	$(AM_V_GEN)xmlto --skip-validation -o libc --searchpath $(builddir)/libc man -m $(srcdir)/man.xsl libc/libc.xml
-man: libc_man
-
-libc_install-man: libc_man
+libc_install-man: libc_man.stamp
 	$(MKDIR_P) $(DESTDIR)$(mandir)/man3
 	$(INSTALL_DATA) libc/*.3 $(DESTDIR)$(mandir)/man3/
 install-man: libc_install-man
@@ -47080,21 +47081,20 @@ libm/targetdep.tex.stamp: $(LIBM_CHAPTERS)
 	$(AM_V_at)touch $@
 libm/targetdep.tex: libm/targetdep.tex.stamp; @true
 
-libm/libm.xml.stamp: libm/libm.in.xml $(LIBM_CHAPTERS) $(LIBM_DOCBOOK_OUT_FILES)
+libm/libm.xml: libm/libm.in.xml $(LIBM_CHAPTERS) $(LIBM_DOCBOOK_OUT_FILES)
 	$(AM_V_at)\
 	for chapter in $(LIBM_CHAPTERS); do \
 	  $(TEXI2DOCBOOK) < $(srcdir)/$$chapter > libm/`basename $${chapter%.tex}`.xml || exit 1; \
 	done
 	$(AM_V_GEN)xsltproc --xinclude --path $(builddir)/libm --nonet $(srcdir)/refcontainers.xslt $< > $@.tmp
-	$(AM_V_at)$(SHELL) $(newlib_basedir)/../move-if-change $@.tmp $(@:.stamp=)
+	$(AM_V_at)$(SHELL) $(newlib_basedir)/../move-if-change $@.tmp $@
+
+libm_man.stamp: libm/libm.xml
+	$(AM_V_GEN)xmlto --skip-validation -o libm --searchpath $(builddir)/libm man -m $(srcdir)/man.xsl $(XMLTO_MAN_QUIET) libm/libm.xml
 	$(AM_V_at)touch $@
-libm/libm.xml: libm/libm.xml.stamp; @true
+man: libm_man.stamp
 
-libm_man: libm/libm.xml
-	$(AM_V_GEN)xmlto --skip-validation -o libm --searchpath $(builddir)/libm man -m $(srcdir)/man.xsl libm/libm.xml
-man: libm_man
-
-libm_install-man: libm_man
+libm_install-man: libm_man.stamp
 	$(MKDIR_P) $(DESTDIR)$(mandir)/man3
 	$(INSTALL_DATA) libm/*.3 $(DESTDIR)$(mandir)/man3/
 install-man: libm_install-man
