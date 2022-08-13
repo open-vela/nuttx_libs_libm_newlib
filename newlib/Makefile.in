@@ -552,7 +552,7 @@ check_PROGRAMS =
 @HAVE_LIBC_SYS_RDOS_DIR_TRUE@	libc/sys/rdos/wait.c libc/sys/rdos/write.c
 
 @HAVE_LIBC_SYS_RTEMS_DIR_TRUE@am__append_56 = libc/sys/rtems/dummysys.c libc/sys/rtems/cpusetalloc.c libc/sys/rtems/cpusetfree.c
-@HAVE_LIBC_SYS_SH_DIR_TRUE@am__append_57 = libc/sys/sh/syscalls.c libc/sys/sh/trap.S libc/sys/sh/creat.c libc/sys/sh/ftruncate.c libc/sys/sh/truncate.c
+@HAVE_LIBC_SYS_SH_DIR_TRUE@@MAY_SUPPLY_SYSCALLS_TRUE@am__append_57 = libc/sys/sh/syscalls.c libc/sys/sh/trap.S libc/sys/sh/creat.c libc/sys/sh/ftruncate.c libc/sys/sh/truncate.c
 @HAVE_LIBC_SYS_SYSMEC_DIR_TRUE@am__append_58 = \
 @HAVE_LIBC_SYS_SYSMEC_DIR_TRUE@	libc/sys/sysmec/_exit.c libc/sys/sysmec/access.c libc/sys/sysmec/chmod.c libc/sys/sysmec/chown.c libc/sys/sysmec/close.c libc/sys/sysmec/creat.c libc/sys/sysmec/crt1.c \
 @HAVE_LIBC_SYS_SYSMEC_DIR_TRUE@	libc/sys/sysmec/execv.c libc/sys/sysmec/execve.c libc/sys/sysmec/fork.c libc/sys/sysmec/fstat.c libc/sys/sysmec/getpid.c libc/sys/sysmec/isatty.c \
@@ -1661,11 +1661,11 @@ am__objects_51 = libc/ssp/libc_a-chk_fail.$(OBJEXT) \
 @HAVE_LIBC_SYS_RTEMS_DIR_TRUE@am__objects_66 = libc/sys/rtems/libc_a-dummysys.$(OBJEXT) \
 @HAVE_LIBC_SYS_RTEMS_DIR_TRUE@	libc/sys/rtems/libc_a-cpusetalloc.$(OBJEXT) \
 @HAVE_LIBC_SYS_RTEMS_DIR_TRUE@	libc/sys/rtems/libc_a-cpusetfree.$(OBJEXT)
-@HAVE_LIBC_SYS_SH_DIR_TRUE@am__objects_67 = libc/sys/sh/libc_a-syscalls.$(OBJEXT) \
-@HAVE_LIBC_SYS_SH_DIR_TRUE@	libc/sys/sh/libc_a-trap.$(OBJEXT) \
-@HAVE_LIBC_SYS_SH_DIR_TRUE@	libc/sys/sh/libc_a-creat.$(OBJEXT) \
-@HAVE_LIBC_SYS_SH_DIR_TRUE@	libc/sys/sh/libc_a-ftruncate.$(OBJEXT) \
-@HAVE_LIBC_SYS_SH_DIR_TRUE@	libc/sys/sh/libc_a-truncate.$(OBJEXT)
+@HAVE_LIBC_SYS_SH_DIR_TRUE@@MAY_SUPPLY_SYSCALLS_TRUE@am__objects_67 = libc/sys/sh/libc_a-syscalls.$(OBJEXT) \
+@HAVE_LIBC_SYS_SH_DIR_TRUE@@MAY_SUPPLY_SYSCALLS_TRUE@	libc/sys/sh/libc_a-trap.$(OBJEXT) \
+@HAVE_LIBC_SYS_SH_DIR_TRUE@@MAY_SUPPLY_SYSCALLS_TRUE@	libc/sys/sh/libc_a-creat.$(OBJEXT) \
+@HAVE_LIBC_SYS_SH_DIR_TRUE@@MAY_SUPPLY_SYSCALLS_TRUE@	libc/sys/sh/libc_a-ftruncate.$(OBJEXT) \
+@HAVE_LIBC_SYS_SH_DIR_TRUE@@MAY_SUPPLY_SYSCALLS_TRUE@	libc/sys/sh/libc_a-truncate.$(OBJEXT)
 @HAVE_LIBC_SYS_SYSMEC_DIR_TRUE@am__objects_68 = libc/sys/sysmec/libc_a-_exit.$(OBJEXT) \
 @HAVE_LIBC_SYS_SYSMEC_DIR_TRUE@	libc/sys/sysmec/libc_a-access.$(OBJEXT) \
 @HAVE_LIBC_SYS_SYSMEC_DIR_TRUE@	libc/sys/sysmec/libc_a-chmod.$(OBJEXT) \
