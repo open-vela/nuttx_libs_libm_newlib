@@ -523,7 +523,7 @@ check_PROGRAMS =
 @HAVE_LIBC_SYS_AMDGCN_DIR_TRUE@	libc/sys/amdgcn/close.c libc/sys/amdgcn/fstat.c libc/sys/amdgcn/isatty.c libc/sys/amdgcn/lseek.c libc/sys/amdgcn/read.c libc/sys/amdgcn/write.c \
 @HAVE_LIBC_SYS_AMDGCN_DIR_TRUE@	libc/sys/amdgcn/fcntl.c libc/sys/amdgcn/getpid.c libc/sys/amdgcn/kill.c libc/sys/amdgcn/open.c libc/sys/amdgcn/raise.c libc/sys/amdgcn/stat.c libc/sys/amdgcn/unlink.c
 
-@HAVE_LIBC_SYS_ARM_DIR_TRUE@am__append_45 = libc/sys/arm/access.c libc/sys/arm/aeabi_atexit.c
+@HAVE_LIBC_SYS_ARM_DIR_TRUE@am__append_45 = libc/sys/arm/access.c libc/sys/arm/aeabi_atexit.c libc/sys/arm/sysconf.c
 @HAVE_LIBC_SYS_ARM_DIR_TRUE@@MAY_SUPPLY_SYSCALLS_TRUE@am__append_46 = libc/sys/arm/libcfunc.c libc/sys/arm/trap.S libc/sys/arm/syscalls.c
 @HAVE_LIBC_SYS_D10V_DIR_TRUE@am__append_47 = libc/sys/d10v/syscalls.c libc/sys/d10v/trap.S libc/sys/d10v/creat.c
 @HAVE_LIBC_SYS_EPIPHANY_DIR_TRUE@am__append_48 = libc/sys/epiphany/e_printf.c
@@ -1579,7 +1579,8 @@ am__objects_51 = libc/ssp/libc_a-chk_fail.$(OBJEXT) \
 @HAVE_LIBC_SYS_AMDGCN_DIR_TRUE@	libc/sys/amdgcn/libc_a-stat.$(OBJEXT) \
 @HAVE_LIBC_SYS_AMDGCN_DIR_TRUE@	libc/sys/amdgcn/libc_a-unlink.$(OBJEXT)
 @HAVE_LIBC_SYS_ARM_DIR_TRUE@am__objects_55 = libc/sys/arm/libc_a-access.$(OBJEXT) \
-@HAVE_LIBC_SYS_ARM_DIR_TRUE@	libc/sys/arm/libc_a-aeabi_atexit.$(OBJEXT)
+@HAVE_LIBC_SYS_ARM_DIR_TRUE@	libc/sys/arm/libc_a-aeabi_atexit.$(OBJEXT) \
+@HAVE_LIBC_SYS_ARM_DIR_TRUE@	libc/sys/arm/libc_a-sysconf.$(OBJEXT)
 @HAVE_LIBC_SYS_ARM_DIR_TRUE@@MAY_SUPPLY_SYSCALLS_TRUE@am__objects_56 = libc/sys/arm/libc_a-libcfunc.$(OBJEXT) \
 @HAVE_LIBC_SYS_ARM_DIR_TRUE@@MAY_SUPPLY_SYSCALLS_TRUE@	libc/sys/arm/libc_a-trap.$(OBJEXT) \
 @HAVE_LIBC_SYS_ARM_DIR_TRUE@@MAY_SUPPLY_SYSCALLS_TRUE@	libc/sys/arm/libc_a-syscalls.$(OBJEXT)
@@ -6801,6 +6802,8 @@ libc/sys/arm/libc_a-access.$(OBJEXT): libc/sys/arm/$(am__dirstamp) \
 	libc/sys/arm/$(DEPDIR)/$(am__dirstamp)
 libc/sys/arm/libc_a-aeabi_atexit.$(OBJEXT):  \
 	libc/sys/arm/$(am__dirstamp) \
+	libc/sys/arm/$(DEPDIR)/$(am__dirstamp)
+libc/sys/arm/libc_a-sysconf.$(OBJEXT): libc/sys/arm/$(am__dirstamp) \
 	libc/sys/arm/$(DEPDIR)/$(am__dirstamp)
 libc/sys/arm/libc_a-libcfunc.$(OBJEXT): libc/sys/arm/$(am__dirstamp) \
 	libc/sys/arm/$(DEPDIR)/$(am__dirstamp)
@@ -12833,6 +12836,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/arm/$(DEPDIR)/libc_a-aeabi_atexit.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/arm/$(DEPDIR)/libc_a-libcfunc.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/arm/$(DEPDIR)/libc_a-syscalls.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libc/sys/arm/$(DEPDIR)/libc_a-sysconf.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/arm/$(DEPDIR)/libc_a-trap.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/d10v/$(DEPDIR)/libc_a-creat.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/d10v/$(DEPDIR)/libc_a-syscalls.Po@am__quote@
@@ -29555,6 +29559,20 @@ libc/sys/arm/libc_a-aeabi_atexit.obj: libc/sys/arm/aeabi_atexit.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/arm/aeabi_atexit.c' object='libc/sys/arm/libc_a-aeabi_atexit.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/arm/libc_a-aeabi_atexit.obj `if test -f 'libc/sys/arm/aeabi_atexit.c'; then $(CYGPATH_W) 'libc/sys/arm/aeabi_atexit.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/arm/aeabi_atexit.c'; fi`
+
+libc/sys/arm/libc_a-sysconf.o: libc/sys/arm/sysconf.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/arm/libc_a-sysconf.o -MD -MP -MF libc/sys/arm/$(DEPDIR)/libc_a-sysconf.Tpo -c -o libc/sys/arm/libc_a-sysconf.o `test -f 'libc/sys/arm/sysconf.c' || echo '$(srcdir)/'`libc/sys/arm/sysconf.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/arm/$(DEPDIR)/libc_a-sysconf.Tpo libc/sys/arm/$(DEPDIR)/libc_a-sysconf.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/arm/sysconf.c' object='libc/sys/arm/libc_a-sysconf.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/arm/libc_a-sysconf.o `test -f 'libc/sys/arm/sysconf.c' || echo '$(srcdir)/'`libc/sys/arm/sysconf.c
+
+libc/sys/arm/libc_a-sysconf.obj: libc/sys/arm/sysconf.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/arm/libc_a-sysconf.obj -MD -MP -MF libc/sys/arm/$(DEPDIR)/libc_a-sysconf.Tpo -c -o libc/sys/arm/libc_a-sysconf.obj `if test -f 'libc/sys/arm/sysconf.c'; then $(CYGPATH_W) 'libc/sys/arm/sysconf.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/arm/sysconf.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/arm/$(DEPDIR)/libc_a-sysconf.Tpo libc/sys/arm/$(DEPDIR)/libc_a-sysconf.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/arm/sysconf.c' object='libc/sys/arm/libc_a-sysconf.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/arm/libc_a-sysconf.obj `if test -f 'libc/sys/arm/sysconf.c'; then $(CYGPATH_W) 'libc/sys/arm/sysconf.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/arm/sysconf.c'; fi`
 
 libc/sys/arm/libc_a-libcfunc.o: libc/sys/arm/libcfunc.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/arm/libc_a-libcfunc.o -MD -MP -MF libc/sys/arm/$(DEPDIR)/libc_a-libcfunc.Tpo -c -o libc/sys/arm/libc_a-libcfunc.o `test -f 'libc/sys/arm/libcfunc.c' || echo '$(srcdir)/'`libc/sys/arm/libcfunc.c
