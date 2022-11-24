@@ -761,9 +761,10 @@ check_PROGRAMS =
 @HAVE_LIBC_MACHINE_NECV70_TRUE@am__append_105 = libc/machine/necv70/fastmath.S libc/machine/necv70/setjmp.S
 @HAVE_LIBC_MACHINE_NIOS2_TRUE@am__append_106 = libc/machine/nios2/setjmp.s
 @HAVE_LIBC_MACHINE_NVPTX_TRUE@am__append_107 = \
+@HAVE_LIBC_MACHINE_NVPTX_TRUE@	libc/machine/nvptx/_exit.c \
 @HAVE_LIBC_MACHINE_NVPTX_TRUE@	libc/machine/nvptx/calloc.c libc/machine/nvptx/callocr.c libc/machine/nvptx/malloc.c libc/machine/nvptx/mallocr.c libc/machine/nvptx/realloc.c libc/machine/nvptx/reallocr.c \
 @HAVE_LIBC_MACHINE_NVPTX_TRUE@	libc/machine/nvptx/free.c libc/machine/nvptx/write.c libc/machine/nvptx/assert.c libc/machine/nvptx/puts.c libc/machine/nvptx/putchar.c libc/machine/nvptx/printf.c libc/machine/nvptx/abort.c \
-@HAVE_LIBC_MACHINE_NVPTX_TRUE@	libc/machine/nvptx/exit.c libc/machine/nvptx/misc.c libc/machine/nvptx/clock.c
+@HAVE_LIBC_MACHINE_NVPTX_TRUE@	libc/machine/nvptx/misc.c libc/machine/nvptx/clock.c
 
 @HAVE_LIBC_MACHINE_OR1K_TRUE@am__append_108 = libc/machine/or1k/setjmp.S
 @HAVE_LIBC_MACHINE_POWERPC_TRUE@am__append_109 = libc/machine/powerpc/setjmp.S
@@ -2024,7 +2025,8 @@ am__objects_51 = libc/ssp/libc_a-chk_fail.$(OBJEXT) \
 @HAVE_LIBC_MACHINE_NECV70_TRUE@am__objects_115 = libc/machine/necv70/libc_a-fastmath.$(OBJEXT) \
 @HAVE_LIBC_MACHINE_NECV70_TRUE@	libc/machine/necv70/libc_a-setjmp.$(OBJEXT)
 @HAVE_LIBC_MACHINE_NIOS2_TRUE@am__objects_116 = libc/machine/nios2/libc_a-setjmp.$(OBJEXT)
-@HAVE_LIBC_MACHINE_NVPTX_TRUE@am__objects_117 = libc/machine/nvptx/libc_a-calloc.$(OBJEXT) \
+@HAVE_LIBC_MACHINE_NVPTX_TRUE@am__objects_117 = libc/machine/nvptx/libc_a-_exit.$(OBJEXT) \
+@HAVE_LIBC_MACHINE_NVPTX_TRUE@	libc/machine/nvptx/libc_a-calloc.$(OBJEXT) \
 @HAVE_LIBC_MACHINE_NVPTX_TRUE@	libc/machine/nvptx/libc_a-callocr.$(OBJEXT) \
 @HAVE_LIBC_MACHINE_NVPTX_TRUE@	libc/machine/nvptx/libc_a-malloc.$(OBJEXT) \
 @HAVE_LIBC_MACHINE_NVPTX_TRUE@	libc/machine/nvptx/libc_a-mallocr.$(OBJEXT) \
@@ -2037,7 +2039,6 @@ am__objects_51 = libc/ssp/libc_a-chk_fail.$(OBJEXT) \
 @HAVE_LIBC_MACHINE_NVPTX_TRUE@	libc/machine/nvptx/libc_a-putchar.$(OBJEXT) \
 @HAVE_LIBC_MACHINE_NVPTX_TRUE@	libc/machine/nvptx/libc_a-printf.$(OBJEXT) \
 @HAVE_LIBC_MACHINE_NVPTX_TRUE@	libc/machine/nvptx/libc_a-abort.$(OBJEXT) \
-@HAVE_LIBC_MACHINE_NVPTX_TRUE@	libc/machine/nvptx/libc_a-exit.$(OBJEXT) \
 @HAVE_LIBC_MACHINE_NVPTX_TRUE@	libc/machine/nvptx/libc_a-misc.$(OBJEXT) \
 @HAVE_LIBC_MACHINE_NVPTX_TRUE@	libc/machine/nvptx/libc_a-clock.$(OBJEXT)
 @HAVE_LIBC_MACHINE_OR1K_TRUE@am__objects_118 = libc/machine/or1k/libc_a-setjmp.$(OBJEXT)
@@ -8447,6 +8448,9 @@ libc/machine/nvptx/$(am__dirstamp):
 libc/machine/nvptx/$(DEPDIR)/$(am__dirstamp):
 	@$(MKDIR_P) libc/machine/nvptx/$(DEPDIR)
 	@: > libc/machine/nvptx/$(DEPDIR)/$(am__dirstamp)
+libc/machine/nvptx/libc_a-_exit.$(OBJEXT):  \
+	libc/machine/nvptx/$(am__dirstamp) \
+	libc/machine/nvptx/$(DEPDIR)/$(am__dirstamp)
 libc/machine/nvptx/libc_a-calloc.$(OBJEXT):  \
 	libc/machine/nvptx/$(am__dirstamp) \
 	libc/machine/nvptx/$(DEPDIR)/$(am__dirstamp)
@@ -8484,9 +8488,6 @@ libc/machine/nvptx/libc_a-printf.$(OBJEXT):  \
 	libc/machine/nvptx/$(am__dirstamp) \
 	libc/machine/nvptx/$(DEPDIR)/$(am__dirstamp)
 libc/machine/nvptx/libc_a-abort.$(OBJEXT):  \
-	libc/machine/nvptx/$(am__dirstamp) \
-	libc/machine/nvptx/$(DEPDIR)/$(am__dirstamp)
-libc/machine/nvptx/libc_a-exit.$(OBJEXT):  \
 	libc/machine/nvptx/$(am__dirstamp) \
 	libc/machine/nvptx/$(DEPDIR)/$(am__dirstamp)
 libc/machine/nvptx/libc_a-misc.$(OBJEXT):  \
@@ -12016,12 +12017,12 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@libc/machine/nds32/$(DEPDIR)/libc_a-strcpy.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/machine/necv70/$(DEPDIR)/libc_a-fastmath.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/machine/necv70/$(DEPDIR)/libc_a-setjmp.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libc/machine/nvptx/$(DEPDIR)/libc_a-_exit.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/machine/nvptx/$(DEPDIR)/libc_a-abort.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/machine/nvptx/$(DEPDIR)/libc_a-assert.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/machine/nvptx/$(DEPDIR)/libc_a-calloc.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/machine/nvptx/$(DEPDIR)/libc_a-callocr.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/machine/nvptx/$(DEPDIR)/libc_a-clock.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@libc/machine/nvptx/$(DEPDIR)/libc_a-exit.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/machine/nvptx/$(DEPDIR)/libc_a-free.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/machine/nvptx/$(DEPDIR)/libc_a-malloc.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/machine/nvptx/$(DEPDIR)/libc_a-mallocr.Po@am__quote@
@@ -32486,6 +32487,20 @@ libc/machine/nds32/libc_a-abort.obj: libc/machine/nds32/abort.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/machine/nds32/libc_a-abort.obj `if test -f 'libc/machine/nds32/abort.c'; then $(CYGPATH_W) 'libc/machine/nds32/abort.c'; else $(CYGPATH_W) '$(srcdir)/libc/machine/nds32/abort.c'; fi`
 
+libc/machine/nvptx/libc_a-_exit.o: libc/machine/nvptx/_exit.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/machine/nvptx/libc_a-_exit.o -MD -MP -MF libc/machine/nvptx/$(DEPDIR)/libc_a-_exit.Tpo -c -o libc/machine/nvptx/libc_a-_exit.o `test -f 'libc/machine/nvptx/_exit.c' || echo '$(srcdir)/'`libc/machine/nvptx/_exit.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/machine/nvptx/$(DEPDIR)/libc_a-_exit.Tpo libc/machine/nvptx/$(DEPDIR)/libc_a-_exit.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/machine/nvptx/_exit.c' object='libc/machine/nvptx/libc_a-_exit.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/machine/nvptx/libc_a-_exit.o `test -f 'libc/machine/nvptx/_exit.c' || echo '$(srcdir)/'`libc/machine/nvptx/_exit.c
+
+libc/machine/nvptx/libc_a-_exit.obj: libc/machine/nvptx/_exit.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/machine/nvptx/libc_a-_exit.obj -MD -MP -MF libc/machine/nvptx/$(DEPDIR)/libc_a-_exit.Tpo -c -o libc/machine/nvptx/libc_a-_exit.obj `if test -f 'libc/machine/nvptx/_exit.c'; then $(CYGPATH_W) 'libc/machine/nvptx/_exit.c'; else $(CYGPATH_W) '$(srcdir)/libc/machine/nvptx/_exit.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/machine/nvptx/$(DEPDIR)/libc_a-_exit.Tpo libc/machine/nvptx/$(DEPDIR)/libc_a-_exit.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/machine/nvptx/_exit.c' object='libc/machine/nvptx/libc_a-_exit.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/machine/nvptx/libc_a-_exit.obj `if test -f 'libc/machine/nvptx/_exit.c'; then $(CYGPATH_W) 'libc/machine/nvptx/_exit.c'; else $(CYGPATH_W) '$(srcdir)/libc/machine/nvptx/_exit.c'; fi`
+
 libc/machine/nvptx/libc_a-calloc.o: libc/machine/nvptx/calloc.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/machine/nvptx/libc_a-calloc.o -MD -MP -MF libc/machine/nvptx/$(DEPDIR)/libc_a-calloc.Tpo -c -o libc/machine/nvptx/libc_a-calloc.o `test -f 'libc/machine/nvptx/calloc.c' || echo '$(srcdir)/'`libc/machine/nvptx/calloc.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/machine/nvptx/$(DEPDIR)/libc_a-calloc.Tpo libc/machine/nvptx/$(DEPDIR)/libc_a-calloc.Po
@@ -32667,20 +32682,6 @@ libc/machine/nvptx/libc_a-abort.obj: libc/machine/nvptx/abort.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/machine/nvptx/abort.c' object='libc/machine/nvptx/libc_a-abort.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/machine/nvptx/libc_a-abort.obj `if test -f 'libc/machine/nvptx/abort.c'; then $(CYGPATH_W) 'libc/machine/nvptx/abort.c'; else $(CYGPATH_W) '$(srcdir)/libc/machine/nvptx/abort.c'; fi`
-
-libc/machine/nvptx/libc_a-exit.o: libc/machine/nvptx/exit.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/machine/nvptx/libc_a-exit.o -MD -MP -MF libc/machine/nvptx/$(DEPDIR)/libc_a-exit.Tpo -c -o libc/machine/nvptx/libc_a-exit.o `test -f 'libc/machine/nvptx/exit.c' || echo '$(srcdir)/'`libc/machine/nvptx/exit.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/machine/nvptx/$(DEPDIR)/libc_a-exit.Tpo libc/machine/nvptx/$(DEPDIR)/libc_a-exit.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/machine/nvptx/exit.c' object='libc/machine/nvptx/libc_a-exit.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/machine/nvptx/libc_a-exit.o `test -f 'libc/machine/nvptx/exit.c' || echo '$(srcdir)/'`libc/machine/nvptx/exit.c
-
-libc/machine/nvptx/libc_a-exit.obj: libc/machine/nvptx/exit.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/machine/nvptx/libc_a-exit.obj -MD -MP -MF libc/machine/nvptx/$(DEPDIR)/libc_a-exit.Tpo -c -o libc/machine/nvptx/libc_a-exit.obj `if test -f 'libc/machine/nvptx/exit.c'; then $(CYGPATH_W) 'libc/machine/nvptx/exit.c'; else $(CYGPATH_W) '$(srcdir)/libc/machine/nvptx/exit.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/machine/nvptx/$(DEPDIR)/libc_a-exit.Tpo libc/machine/nvptx/$(DEPDIR)/libc_a-exit.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/machine/nvptx/exit.c' object='libc/machine/nvptx/libc_a-exit.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/machine/nvptx/libc_a-exit.obj `if test -f 'libc/machine/nvptx/exit.c'; then $(CYGPATH_W) 'libc/machine/nvptx/exit.c'; else $(CYGPATH_W) '$(srcdir)/libc/machine/nvptx/exit.c'; fi`
 
 libc/machine/nvptx/libc_a-misc.o: libc/machine/nvptx/misc.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/machine/nvptx/libc_a-misc.o -MD -MP -MF libc/machine/nvptx/$(DEPDIR)/libc_a-misc.Tpo -c -o libc/machine/nvptx/libc_a-misc.o `test -f 'libc/machine/nvptx/misc.c' || echo '$(srcdir)/'`libc/machine/nvptx/misc.c
