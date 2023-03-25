@@ -23,11 +23,6 @@
  * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
  */
-#include <sys/cdefs.h>
-__RCSID("$NetBSD: fenv.c,v 1.2 2017/03/22 23:11:09 chs Exp $");
-
-
-
 #include <assert.h>
 #include <fenv.h>
 
