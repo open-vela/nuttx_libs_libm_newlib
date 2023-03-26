@@ -136,7 +136,6 @@ in terms of the base return values, although the <[signgam]> global for
  */
 
 #include "fdlibm.h"
-#include <reent.h>
 #include <errno.h>
 
 #ifndef _DOUBLE_IS_32BITS
