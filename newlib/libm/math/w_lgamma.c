@@ -19,7 +19,6 @@
  */
 
 #include "fdlibm.h"
-#include <reent.h>
 #include <errno.h>
 
 #ifdef _REENT_THREAD_LOCAL

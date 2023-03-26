@@ -15,7 +15,6 @@
  */
 
 #include "fdlibm.h"
-#include <reent.h>
 #include <errno.h>
 
 #ifdef __STDC__
