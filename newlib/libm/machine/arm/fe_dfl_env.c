@@ -31,6 +31,10 @@
 
 #include "_fenv.h"
 
+#ifdef __clang__
+fenv_t _fe_dfl_env = { 0 };
+#else
 fenv_t __fe_dfl_env = { 0 };
 
 const fenv_t *_fe_dfl_env = &__fe_dfl_env;
+#endif
