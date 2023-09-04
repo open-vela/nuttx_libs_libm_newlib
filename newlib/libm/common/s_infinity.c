@@ -38,7 +38,7 @@ QUICKREF
 
 #ifndef _DOUBLE_IS_32BITS
 
-	double infinity()
+	double infinity(void)
 {
 	double x;
 
