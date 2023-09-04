@@ -5,7 +5,7 @@
 
 #include "fdlibm.h"
 
-	float infinityf()
+	float infinityf(void)
 {
 	float x;
 
