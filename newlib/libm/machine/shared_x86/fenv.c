@@ -5,6 +5,7 @@
  */
 
 #define _GNU_SOURCE        // for FE_NOMASK_ENV
+#define __GNU_VISIBLE 1
 
 #include <fenv.h>
 #include <errno.h>
