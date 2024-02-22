@@ -30,6 +30,7 @@
 #define _SYS_FENV_H 1
 
 #include <sys/cdefs.h>
+#include <stdint.h>
 
 #ifdef __cplusplus
 extern "C" {
