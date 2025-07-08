@@ -60,7 +60,7 @@ twon8  =  3.9062500000e-03; /* 0x3b800000 */
 #endif
 {
 	__int32_t jz,jx,jv,jp,jk,carry,n,iq[20],i,j,k,m,q0,ih;
-	float z,fw,f[20],fq[20],q[20];
+	float z,fw,f[20],fq[20] = {0.0},q[20];
 
     /* initialize jk*/
 	jk = init_jk[prec];
