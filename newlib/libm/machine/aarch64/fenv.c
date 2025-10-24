@@ -29,7 +29,6 @@
 
 #define	__fenv_static
 #include <fenv.h>
-#include <machine/fenv-fp.h>
 
 /*
  * Hopefully the system ID byte is immutable, so it's valid to use
